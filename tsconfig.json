@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compileOnSave": false,
+  "files": [],
+  "references": [
+    {
+      "path": "./apps/server/nestjs-gateway-e2e"
+    },
+    {
+      "path": "./apps/server/nestjs-gateway"
+    },
+    {
+      "path": "./apps/client/food-blog-client"
+    }
+  ]
+}
