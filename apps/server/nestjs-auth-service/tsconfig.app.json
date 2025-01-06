@@ -9,7 +9,6 @@
     "tsBuildInfoFile": "out-tsc/nestjs-auth-service/tsconfig.app.tsbuildinfo",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es2021",
     "strictNullChecks": true,
     "noImplicitAny": true,
     "strictBindCallApply": true,

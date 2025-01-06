@@ -1,0 +1,12 @@
+{
+  "name": "@food-blog/utils",
+  "version": "0.0.1",
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "type": "module",
+  "files": [
+    "dist",
+    "!**/*.tsbuildinfo"
+  ]
+}
