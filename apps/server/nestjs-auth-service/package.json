@@ -22,26 +22,8 @@
             ]
           }
         }
-      },
-      "serve": {
-        "executor": "@nx/js:node",
-        "defaultConfiguration": "development",
-        "dependsOn": [
-          "build"
-        ],
-        "options": {
-          "buildTarget": "nestjs-auth-service:build",
-          "runBuildTargetDependencies": false
-        },
-        "configurations": {
-          "development": {
-            "buildTarget": "nestjs-auth-service:build:development"
-          },
-          "production": {
-            "buildTarget": "nestjs-auth-service:build:production"
-          }
-        }
       }
+
     }
   }
 }

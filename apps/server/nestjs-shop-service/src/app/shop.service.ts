@@ -13,6 +13,7 @@ export class ShopService {
   constructor(@InjectModel(Shop.name) private shopModel: Model<Shop>) {}
 
   async getShop() {
+    console.log('getShop');
     const result = await this.shopModel.find();
     return apiSuccess<Shop[]>(result, 'Successfully get shop data', 200);
   }

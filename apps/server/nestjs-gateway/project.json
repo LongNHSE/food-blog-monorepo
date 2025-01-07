@@ -1,3 +1,52 @@
 {
-  "name": "nestjs-gateway"
+  "root": "apps/server/nestjs-gateway",
+  "sourceRoot": "apps/server/nestjs-gateway/src",
+  "projectType": "application",
+  "tags": ["api", "nestjs"],
+
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*"],
+    "production": ["!{projectRoot}/**/*.spec.tsx"]
+  },
+  "targets": {
+    "build": {
+      "inputs": ["production", "^production"],
+      "outputs": ["{workspaceRoot}/dist/apps/server/nestjs-gateway"],
+      "executor": "@nx/esbuild:esbuild",
+      "options": {
+        "entryPoints": ["apps/server/nestjs-gateway/src/main.ts"],
+        "bundle": true,
+        "watch": true,
+        "platform": "node",
+        "format": ["esm"],
+        "outdir": "dist/apps/server/nestjs-gateway",
+        "main": "apps/server/nestjs-gateway/src/main.ts",
+        "outputPath": "dist/apps/server/nestjs-gateway",
+        "tsConfig": "apps/server/nestjs-gateway/tsconfig.app.json",
+        "esbuildConfig": "esbuild.config.ts"
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "options": {
+        "watch": true,
+        "buildTarget": "nestjs-gateway:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "nestjs-gateway:build:development"
+        },
+        "production": {
+          "buildTarget": "nestjs-gateway:build:production"
+        }
+      }
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nest start --watch"
+      }
+    }
+  }
 }

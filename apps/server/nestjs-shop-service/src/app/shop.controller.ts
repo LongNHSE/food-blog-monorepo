@@ -6,12 +6,13 @@ import { Controller, Get } from '@nestjs/common';
 import { MessagePattern } from '@nestjs/microservices';
 import { ShopService } from './shop.service';
 
-@Controller('api')
+@Controller('shop')
 export class ShopController {
   constructor(private readonly shopService: ShopService) {}
 
   @MessagePattern('getShop')
   getShop() {
+    console.log(this.shopService);
     return this.shopService.getShop();
   }
 
