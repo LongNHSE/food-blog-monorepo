@@ -31,7 +31,8 @@
     "verbatimModuleSyntax": false,
     "baseUrl": ".",
     "paths": {
-      "@food-blog/utils": ["libs/utils/src/index.ts"]
+      "@food-blog/utils": ["libs/utils/src/index.ts"],
+      "@food-blog/interfaces": ["libs/interface/src/index.ts"]
     }
   }
 }

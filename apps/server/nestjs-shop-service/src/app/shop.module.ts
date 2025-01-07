@@ -14,17 +14,17 @@ import { ShopSchema } from '../schema/shop.schema';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    // MongooseModule.forRootAsync({
-    //   useFactory: () => ({
-    //     uri: "process.env.MONGO_CONNECTION_STRING",
-    //   }),
-    // }),
-    // MongooseModule.forFeature([
-    //   {
-    //     name: 'Shop',
-    //     schema: ShopSchema,
-    //   },
-    // ]),
+    MongooseModule.forRootAsync({
+      useFactory: () => ({
+        uri: process.env.MONGO_CONNECTION_STRING,
+      }),
+    }),
+    MongooseModule.forFeature([
+      {
+        name: 'Shop',
+        schema: ShopSchema,
+      },
+    ]),
   ],
   controllers: [ShopController],
   providers: [ShopService],

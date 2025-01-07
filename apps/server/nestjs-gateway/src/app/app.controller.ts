@@ -9,5 +9,10 @@ export class AppController {
   getData(): { message: string } {
     return this.appService.getData();
   }
+
+  @Get('shop')
+  getShop(){
+    return this.appService.getShop();
+  }
  
 }
