@@ -1,0 +1,51 @@
+{
+  "root": "apps/server/nestjs-shop-service",
+  "sourceRoot": "apps/server/nestjs-shop-service/src",
+  "projectType": "application",
+  "tags": ["api", "nestjs"],
+
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*"],
+    "production": ["!{projectRoot}/**/*.spec.tsx"]
+  },
+  "targets": {
+    "build": {
+      "inputs": ["production", "^production"],
+      "outputs": ["{workspaceRoot}/dist/apps/server/nestjs-shop-service"],
+      "executor": "@nx/esbuild:esbuild",
+      "options": {
+        "entryPoints": ["apps/server/nestjs-shop-service/src/main.ts"],
+        "bundle": true,
+        "watch": true,
+        "platform": "node",
+        "format": ["esm"],
+        "outdir": "dist/apps/server/nestjs-shop-service",
+        "main": "apps/server/nestjs-shop-service/src/main.ts",
+        "outputPath": "dist/apps/server/nestjs-shop-service",
+        "tsConfig": "apps/server/nestjs-shop-service/tsconfig.app.json"
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "options": {
+        "watch": true,
+        "buildTarget": "nestjs-shop-service:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "nestjs-shop-service:build:development"
+        },
+        "production": {
+          "buildTarget": "nestjs-shop-service:build:production"
+        }
+      }
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nest start --watch"
+      }
+    }
+  }
+}
