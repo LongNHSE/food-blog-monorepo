@@ -13,9 +13,9 @@
     "importHelpers": true,
     "incremental": true,
     "isolatedModules": true,
-    "lib": ["es2022"],
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "target": "es2017",
     "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
@@ -28,7 +28,11 @@
     "skipLibCheck": true,
     "sourceMap": false,
     "strict": true,
-    "target": "es2022",
-    "verbatimModuleSyntax": false
+    "verbatimModuleSyntax": false,
+    "baseUrl": ".",
+    "paths": {
+      "@food-blog/utils": ["libs/utils/src/index.ts"],
+      "@food-blog/interfaces": ["libs/interface/src/index.ts"]
+    }
   }
 }
