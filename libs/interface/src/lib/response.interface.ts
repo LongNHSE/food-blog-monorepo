@@ -18,8 +18,8 @@ export const apiSuccess = <T>(
 export const apiFailed = (
   error: any,
   message = 'Failed',
+  statusCode = 500,
   data = null,
-  statusCode = 500
 ): ApiResponse<null> => ({
   message,
   statusCode,

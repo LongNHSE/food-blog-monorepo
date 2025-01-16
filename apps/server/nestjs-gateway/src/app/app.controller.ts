@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -16,5 +16,11 @@ export class AppController {
   getShop() {
     console.log('getShop');
     return this.appService.getShop();
+  }
+
+  @Post('shop')
+  createShop(@Body() createShopDto: any) {
+    console.log('createShop');
+    return this.appService.createShop(createShopDto);
   }
 }

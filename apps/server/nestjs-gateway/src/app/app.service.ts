@@ -1,15 +1,21 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { ClientProxy } from '@nestjs/microservices';
+import { ClientProxy, RpcException } from '@nestjs/microservices';
 import { apiSuccess } from '@food-blog/interfaces';
+import { catchError, firstValueFrom, throwError, timeout } from 'rxjs';
 
 @Injectable()
 export class AppService {
   constructor(@Inject('SHOP_SERVICE') private shopService: ClientProxy) {}
 
+  async createShop(createShopDto: any) {
+    const result = this.shopService
+      .send('createShop', createShopDto)
+      .pipe(catchError((error) => throwError(() => error)));
+    return result;
+  }
+
   async getShop() {
-    console.log('getShop');
     const result = await this.shopService.send('getShop', {}).toPromise();
-    console.log(result);
     return apiSuccess(result, 'Successfully get shop data', 200);
   }
 

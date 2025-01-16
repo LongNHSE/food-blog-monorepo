@@ -11,6 +11,7 @@
     ],
     "sharedGlobals": []
   },
+  "neverConnectToCloud": true,
   "nxCloudId": "676e79d67ba4f6358030e0f3",
   "tasksRunnerOptions": {
     "default": {
