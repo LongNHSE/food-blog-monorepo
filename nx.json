@@ -11,6 +11,7 @@
     ],
     "sharedGlobals": []
   },
+  "neverConnectToCloud": true,
   "nxCloudId": "676e79d67ba4f6358030e0f3",
   "tasksRunnerOptions": {
     "default": {
@@ -46,14 +47,6 @@
       "plugin": "@nx/eslint/plugin",
       "options": {
         "targetName": "lint"
-      }
-    },
-    {
-      "plugin": "@nx/webpack/plugin",
-      "options": {
-        "buildTargetName": "build",
-        "serveTargetName": "serve",
-        "previewTargetName": "preview"
       }
     }
   ],

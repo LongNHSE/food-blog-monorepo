@@ -15,6 +15,7 @@
     "isolatedModules": true,
     "module": "esnext",
     "moduleResolution": "node",
+    "target": "es2017",
     "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
@@ -27,11 +28,11 @@
     "skipLibCheck": true,
     "sourceMap": false,
     "strict": true,
-    "target": "ESNext",
     "verbatimModuleSyntax": false,
     "baseUrl": ".",
     "paths": {
-      "@food-blog/utils": ["libs/utils/src/index.ts"]
+      "@food-blog/utils": ["libs/utils/src/index.ts"],
+      "@food-blog/interfaces": ["libs/interface/src/index.ts"]
     }
   }
 }

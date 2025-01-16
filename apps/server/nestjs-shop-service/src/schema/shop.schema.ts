@@ -11,10 +11,9 @@ export interface IShop {
 
 @Schema({
   timestamps: true,
-  versionKey: true,
 })
 export class Shop extends Document<ObjectId, any, Shop> implements IShop {
-  @Prop({ required: true })
+  @Prop({ required: true, type: String })
   name!: string;
   @Prop([String])
   images?: string[];
