@@ -22,7 +22,8 @@
         "outdir": "dist/apps/server/nestjs-shop-service",
         "main": "apps/server/nestjs-shop-service/src/main.ts",
         "outputPath": "dist/apps/server/nestjs-shop-service",
-        "tsConfig": "apps/server/nestjs-shop-service/tsconfig.app.json"
+        "tsConfig": "apps/server/nestjs-shop-service/tsconfig.app.json",
+        "esbuildConfig": "esbuild.config.ts"
       }
     },
     "serve": {
