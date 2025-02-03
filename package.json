@@ -64,6 +64,7 @@
     "@nestjs/microservices": "^10.4.15",
     "@nestjs/mongoose": "^10.1.0",
     "@nrwl/nx-cloud": "^19.1.0",
+    "@radix-ui/react-avatar": "^1.1.2",
     "@radix-ui/react-navigation-menu": "^1.2.3",
     "axios": "^1.6.0",
     "class-transformer": "^0.5.1",
