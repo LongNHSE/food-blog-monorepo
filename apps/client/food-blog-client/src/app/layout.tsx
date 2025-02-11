@@ -1,3 +1,4 @@
+import NavigationBar from './components/NavigationBar';
 import './global.css';
 
 export const metadata = {
@@ -12,7 +13,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="bg-gray-50 text-gray-900 font-sans">
+        <header className="sticky top-0 z-50 bg-gradient-to-b  from-light-sand to-warm-beige">
+          <NavigationBar></NavigationBar>
+        </header>
+        <div>{children}</div>
+      </body>
     </html>
   );
 }
