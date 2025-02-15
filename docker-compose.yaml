@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  builder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./apps:/usr/src/app/apps
+    command: ['sh', '-c']
+
+  nestjs-gateway:
+    build:
+      context: .
+      dockerfile: apps/server/nestjs-gateway/Dockerfile
+    ports:
+      - '3000:3000'
+    depends_on:
+      - builder
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./apps/nestjs-gateway:/usr/src/app
+    command: ['sh', '-c', 'node ./dist/apps/server/nestjs-gateway/main.js']
+
+  nestjs-shop-service:
+    build:
+      context: .
+      dockerfile: apps/server/nestjs-shop-service/Dockerfile
+    ports:
+      - '3001:3001'
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - builder
+    volumes:
+      - ./apps/nestjs-shop-service:/usr/src/app
+    command: ['sh', '-c', 'node ./dist/apps/server/nestjs-shop-service/main.js']
