@@ -27,13 +27,15 @@ export class ShopController {
 
   @MessagePattern('createShop')
   async createShop(@Payload() createShopDto: CreateShopDto) {
-    // throw new RpcException('Error message');
-    // throw new Error('Error message');
     const dto = plainToInstance(CreateShopDto, createShopDto);
     const errors = await validate(dto);
     if (errors.length > 0) {
-      throw new RpcException(new NotFoundException('Product was not found!'));
+      throw new RpcException({
+        statusCode: 400,
+        message: 'Validation failed',
+        errors: errors,
+      });
     }
-    return 'utils()';
+    return this.shopService.createShop(dto);
   }
 }
