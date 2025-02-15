@@ -1,4 +1,5 @@
 {
+  "name": "nestjs-gateway",
   "root": "apps/server/nestjs-gateway",
   "sourceRoot": "apps/server/nestjs-gateway/src",
   "projectType": "application",
@@ -16,7 +17,7 @@
       "options": {
         "entryPoints": ["apps/server/nestjs-gateway/src/main.ts"],
         "bundle": true,
-        "watch": true,
+        "watch": false,
         "platform": "node",
         "format": ["esm"],
         "outdir": "dist/apps/server/nestjs-gateway",

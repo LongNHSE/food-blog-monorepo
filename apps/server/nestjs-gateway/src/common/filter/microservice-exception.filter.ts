@@ -11,26 +11,40 @@ import { RpcException } from '@nestjs/microservices';
 import { ValidationError } from 'class-validator';
 import { apiFailed, apiSuccess } from '@food-blog/interfaces';
 
+interface ErrorResponse {
+  error?: any;
+  message: string;
+  data?: any;
+}
 @Catch(RpcException)
 export class AllExceptionsFilter implements ExceptionFilter {
   constructor(private readonly httpAdapterHost: HttpAdapterHost) {}
 
   catch(exception: unknown, host: ArgumentsHost): void {
     const { httpAdapter } = this.httpAdapterHost;
-    Logger.error(exception);
     const ctx = host.switchToHttp();
 
-    const httpStatus =
+    let httpStatus =
       exception instanceof HttpException
         ? exception.getStatus()
         : HttpStatus.INTERNAL_SERVER_ERROR;
 
-    let responseBody: any;
+    let responseBody: ErrorResponse;
 
     if (exception instanceof RpcException) {
-      console.error('Exception is an instance of RpcException');
-      const error = exception.getError();
-      responseBody = typeof error === 'string' ? { message: error } : error;
+      const error:any = exception.getError();
+      if (typeof error === 'string') {
+        responseBody = {
+          message: error,
+        };
+        httpStatus = HttpStatus.BAD_REQUEST; // Default to 400 for RpcException
+      } else {
+        responseBody = {
+          message: error?.message || 'Internal server error',
+          error: error.errors,
+        };
+        httpStatus = error?.statusCode || HttpStatus.INTERNAL_SERVER_ERROR;
+      }
     } else if (
       Array.isArray(exception) &&
       exception[0] instanceof ValidationError
@@ -39,16 +53,21 @@ export class AllExceptionsFilter implements ExceptionFilter {
       responseBody = this.formatValidationErrors(exception);
     } else if (exception instanceof HttpException) {
       console.error('Exception is an instance of HttpException');
-      responseBody = exception.getResponse();
-    } else {
-      console.error('Exception is an unknown type');
       responseBody = {
-        statusCode: httpStatus,
+        message: exception.message,
+        error: exception.getResponse(),
+      };
+    } else {
+      responseBody = {
         message: 'Internal server error',
       };
     }
 
-    const apiFailedResponse = apiFailed(responseBody, 'Failed', httpStatus);
+    const apiFailedResponse = apiFailed(
+      responseBody.error,
+      responseBody.message,
+      httpStatus
+    );
 
     httpAdapter.reply(ctx.getResponse(), apiFailedResponse, httpStatus);
   }
