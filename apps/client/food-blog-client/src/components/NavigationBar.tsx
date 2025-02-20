@@ -5,7 +5,10 @@ import {
   NavigationMenuItem,
   NavigationMenuTrigger,
 } from '@radix-ui/react-navigation-menu';
-import { MenuProps, NavigationProps } from '../types/navigationProps.interface';
+import {
+  MenuProps,
+  NavigationProps,
+} from '../types/navigationProps.interface';
 import Image from 'next/image';
 import { HomeIcon, ContactIcon, Book, Store } from 'lucide-react';
 import Link from 'next/link';
@@ -57,7 +60,7 @@ const NavigationBar = ({ menu }: NavigationProps) => {
                     <NavigationMenuTrigger>
                       <div className="flex items-center space-x-2  px-5 py-2">
                         <div>{item.renderIcon}</div>
-                        <span className='text-2xl'>{item.title}</span>
+                        <span className="text-2xl">{item.title}</span>
                       </div>
                     </NavigationMenuTrigger>
                   </NavigationMenuItem>
