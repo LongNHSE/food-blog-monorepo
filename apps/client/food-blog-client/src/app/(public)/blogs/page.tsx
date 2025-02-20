@@ -1,7 +1,7 @@
 'use client';
 import { useSelector } from 'react-redux';
-import { logout } from '../libs/states/user/userSlice';
-import { useAppDispatch } from '../libs/store';
+import { logout } from '../../../api/libs/states/user/userSlice';
+import { useAppDispatch } from '../../../api/libs/store';
 
 export default function Index() {
   const user = useSelector((state: any) => state.user);
