@@ -1,5 +1,6 @@
-import NavigationBar from './components/NavigationBar';
+import NavigationBar from '../components/NavigationBar';
 import './global.css';
+import StoreProvider from '../components/StoreProvider';
 
 export const metadata = {
   title: 'Welcome to food-blog-client',
@@ -13,12 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-gray-50 text-gray-900 font-sans">
-        <header className="sticky top-0 z-50 bg-gradient-to-b  from-light-sand to-warm-beige">
-          <NavigationBar></NavigationBar>
-        </header>
-        <div>{children}</div>
-      </body>
+      <StoreProvider>{children}</StoreProvider>
     </html>
   );
 }

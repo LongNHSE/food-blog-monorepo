@@ -18,6 +18,7 @@ module.exports = {
         'earthy-cream': '#b8ae9b',
         'light-sand': '#CBBD93',
         'olive-beige': '#808000',
+        dark_brown: '#89644d',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
