@@ -42,10 +42,10 @@ const axiosPrivate = async () => {
         error.response?.status === 401 &&
         originalRequest._retryAttempt <= 5
       ) {
-        originalRequest._retryAttempt = (originalRequest._retryAttempt || 0) + 1;
+        originalRequest._retryAttempt =
+          (originalRequest._retryAttempt || 0) + 1;
         await refreshAccessToken();
         return privateInstance.request(error.config);
-
       }
       return Promise.reject(error);
     }
@@ -70,3 +70,5 @@ const refreshAccessToken = async () => {
   }
   return null;
 };
+
+export { axiosPublic, axiosPrivate };

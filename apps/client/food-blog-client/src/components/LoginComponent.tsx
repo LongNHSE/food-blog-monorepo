@@ -92,7 +92,7 @@ export const LoginComponent = () => {
           <p>
             Don&apos;t have an account?{' '}
             <Link
-              href="/auth/signup"
+              href="/sign-up"
               className="text-blue-500 underline underline-offset-4"
             >
               Create Account
