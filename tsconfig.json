@@ -27,5 +27,22 @@
     {
       "path": "./libs/interface"
     }
-  ]
+  ],
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "nestjs-auth-lib/nestjs-auth-lib": [
+        "libs/nestjs-auth-lib/src"
+      ],
+      "nestjs-auth-lib/nestjs-auth-lib/*": [
+        "libs/nestjs-auth-lib/src/*"
+      ],
+      "@food-blog/nestjs-user-lib": [
+        "libs/nestjs-user-lib/src"
+      ],
+      "@food-blog/nestjs-user-lib/*": [
+        "libs/nestjs-user-lib/src/*"
+      ]
+    }
+  }
 }

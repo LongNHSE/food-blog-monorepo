@@ -3,9 +3,9 @@
   "compilerOptions": {
     "outDir": "out-tsc/nestjs-gateway",
     "module": "esnext",
+    "rootDir": "../../..",
     "moduleResolution": "node",
     "types": ["node"],
-    "rootDir": "src",
     "tsBuildInfoFile": "out-tsc/nestjs-gateway/tsconfig.app.tsbuildinfo",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
@@ -21,6 +21,9 @@
     },
     {
       "path": "../../../libs/interface/tsconfig.lib.json"
+    },
+    {
+      "path": "../../../libs/nestjs-auth-lib/tsconfig.lib.json"
     }
   ]
 }

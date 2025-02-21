@@ -8,7 +8,7 @@
     "emitDeclarationOnly": true,
     "emitDecoratorMetadata": false,
     "esModuleInterop": true,
-    "experimentalDecorators": false,
+    "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
     "incremental": true,
@@ -32,7 +32,8 @@
     "baseUrl": ".",
     "paths": {
       "@food-blog/utils": ["libs/utils/src/index.ts"],
-      "@food-blog/interfaces": ["libs/interface/src/index.ts"]
+      "@food-blog/interfaces": ["libs/interface/src/index.ts"],
+      "@food-blog/nestjs-auth-lib": ["libs/nestjs-auth-lib/src/index.ts"]
     }
   }
 }

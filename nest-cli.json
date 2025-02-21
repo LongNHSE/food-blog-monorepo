@@ -1,0 +1,25 @@
+{
+  "projects": {
+    "nestjs-auth-lib": {
+      "type": "library",
+      "root": "libs/nestjs-auth-lib",
+      "entryFile": "index",
+      "sourceRoot": "libs/nestjs-auth-lib/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/nestjs-auth-lib/tsconfig.lib.json"
+      }
+    },
+    "nestjs-user-lib": {
+      "type": "library",
+      "root": "libs/nestjs-user-lib",
+      "entryFile": "index",
+      "sourceRoot": "libs/nestjs-user-lib/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/nestjs-user-lib/tsconfig.lib.json"
+      }
+    }
+  },
+  "compilerOptions": {
+    "webpack": true
+  }
+}
