@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ClientProxy, RpcException } from '@nestjs/microservices';
 import { apiSuccess } from '@food-blog/interfaces';
-import { catchError, firstValueFrom, throwError, timeout } from 'rxjs';
+import { catchError, firstValueFrom, throwError } from 'rxjs';
 
 @Injectable()
 export class AppService {

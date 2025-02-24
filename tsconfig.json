@@ -7,9 +7,6 @@
       "path": "./apps/server/nestjs-gateway"
     },
     {
-      "path": "./apps/client/food-blog-client"
-    },
-    {
       "path": "./apps/server/nestjs-auth-service"
     },
     {
@@ -25,7 +22,11 @@
       "path": "./libs/test"
     },
     {
-      "path": "./libs/interface"
-    }
+      "path": "./libs/interfaces"
+    },
+    {
+      "path": "./apps/client/food-blog-client"
+    },
+    { "path": "./libs/nestjs-user-lib/tsconfig.lib.json" }
   ]
 }

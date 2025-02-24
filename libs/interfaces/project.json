@@ -1,0 +1,25 @@
+{
+  "name": "@food-blog/interfaces",
+  "projectType": "library",
+  "sourceRoot": "libs/interfaces/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "main": "libs/interfaces/src/index.ts",
+        "outputPath": "dist/libs/interfaces",
+        "tsConfig": "libs/interfaces/tsconfig.json"
+      }
+    },
+    "test": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "main": "libs/interfaces/src/test.ts",
+        "outputPath": "dist/libs/interfaces/test",
+        "tsConfig": "libs/interfaces/tsconfig.json"
+      }
+    }
+  }
+}

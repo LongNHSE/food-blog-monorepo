@@ -4,7 +4,6 @@
     "outDir": "out-tsc/nestjs-auth-service",
     "module": "nodenext",
     "types": ["node"],
-    "rootDir": "src",
     "moduleResolution": "nodenext",
     "tsBuildInfoFile": "out-tsc/nestjs-auth-service/tsconfig.app.tsbuildinfo",
     "emitDecoratorMetadata": true,
