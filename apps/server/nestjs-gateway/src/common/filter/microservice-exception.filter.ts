@@ -4,12 +4,11 @@ import {
   ArgumentsHost,
   HttpException,
   HttpStatus,
-  Logger,
 } from '@nestjs/common';
 import { HttpAdapterHost } from '@nestjs/core';
 import { RpcException } from '@nestjs/microservices';
 import { ValidationError } from 'class-validator';
-import { apiFailed, apiSuccess } from '@food-blog/interfaces';
+import { apiFailed } from '@food-blog/interfaces';
 
 interface ErrorResponse {
   error?: any;
@@ -32,7 +31,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
     let responseBody: ErrorResponse;
 
     if (exception instanceof RpcException) {
-      const error:any = exception.getError();
+      const error: any = exception.getError();
       if (typeof error === 'string') {
         responseBody = {
           message: error,

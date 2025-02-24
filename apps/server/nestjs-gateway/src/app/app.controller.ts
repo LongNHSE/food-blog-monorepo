@@ -8,6 +8,7 @@ export class AppController {
   @Get()
   getData(): { message: string } {
     console.log('getData');
+    console.log(this.appService);
     return { message: 'Hello API' };
     // return this.appService.getData();
   }

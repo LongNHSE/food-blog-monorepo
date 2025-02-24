@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { NestjsUserLibModule } from '@food-blog/nestjs-user-lib';
 
 @Module({
-  imports: [],
+  imports: [NestjsUserLibModule],
   controllers: [AppController],
   providers: [AppService],
 })
