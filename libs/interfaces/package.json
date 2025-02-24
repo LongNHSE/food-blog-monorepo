@@ -1,0 +1,6 @@
+{
+  "name": "@food-blog/interfaces",
+  "version": "1.0.0",
+  "description": "Interfaces for the Food Blog project",
+  "main": "index.js"
+}

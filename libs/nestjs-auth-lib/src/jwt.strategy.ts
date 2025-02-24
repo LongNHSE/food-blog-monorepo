@@ -16,8 +16,9 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
       secretOrKey: configService.get<string>('JWT_SECRET', 'defaultSecretKey'),
     });
   }
-
+  
   validate(payload: any): { userId: string; username: string } {
+    console.log(this.nestjsAuthLibService)
     return { userId: payload.sub, username: payload.username };
   }
 }

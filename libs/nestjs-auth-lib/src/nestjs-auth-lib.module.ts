@@ -3,6 +3,7 @@ import { NestjsAuthLibService } from './nestjs-auth-lib.service';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+
 @Module({
   imports: [
     PassportModule,
@@ -11,6 +12,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     }),
     JwtModule.registerAsync({
       imports: [ConfigModule],
+      inject: [ConfigService],
       useFactory: async (configService: ConfigService) => ({
         secret: configService.get('JWT_KEY'),
         signOptions: { expiresIn: configService.get('JWT_KEY_EXPIRES_IN') },

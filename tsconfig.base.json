@@ -2,11 +2,10 @@
   "compilerOptions": {
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
-    "composite": true,
     "declaration": true,
     "declarationMap": true,
-    "emitDeclarationOnly": true,
-    "emitDecoratorMetadata": false,
+    "emitDeclarationOnly": false,
+    "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
@@ -27,13 +26,17 @@
     "skipDefaultLibCheck": false,
     "skipLibCheck": true,
     "sourceMap": false,
-    "strict": true,
+    "strict": false,
     "verbatimModuleSyntax": false,
     "baseUrl": ".",
     "paths": {
+      "@food-blog/nestjs-auth-lib": ["libs/nestjs-auth-lib/src/index.ts"],
+      "@food-blog/nestjs-user-lib": ["libs/nestjs-user-lib/src/index.ts"],
+      "@food-blog/nestjs-user-lib/*": ["libs/nestjs-user-lib/src/*"],
       "@food-blog/utils": ["libs/utils/src/index.ts"],
-      "@food-blog/interfaces": ["libs/interface/src/index.ts"],
-      "@food-blog/nestjs-auth-lib": ["libs/nestjs-auth-lib/src/index.ts"]
+      "@food-blog/utils/*": ["libs/utils/src/*"],
+      "@food-blog/interfaces": ["libs/interfaces/src/index.ts"],
+      "@food-blog/interfaces/*": ["libs/interfaces/src/*"]
     }
   }
 }
