@@ -3,9 +3,11 @@ import { NestjsAuthLibService } from './nestjs-auth-lib.service';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { NestjsUserLibModule } from '@food-blog/nestjs-user-lib';
 
 @Module({
   imports: [
+    NestjsUserLibModule,
     PassportModule,
     ConfigModule.forRoot({
       isGlobal: true,

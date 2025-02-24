@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { NestjsUserLibService } from './nestjs-user-lib.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { UserSchema } from './user.schema';
+import { UserSchema } from './schema/user.schema';
 @Module({
   imports: [
     ConfigModule.forRoot({
