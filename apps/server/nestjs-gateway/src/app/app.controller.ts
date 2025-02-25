@@ -1,5 +1,6 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AppService } from './app.service';
+import { LoginDto } from '@food-blog/interfaces';
 
 @Controller()
 export class AppController {
@@ -21,5 +22,10 @@ export class AppController {
   @Post('shop')
   createShop(@Body() createShopDto: any) {
     return this.appService.createShop(createShopDto);
+  }
+
+  @Post('login')
+  login(@Body() loginDto: LoginDto) {
+    return this.appService.login(loginDto);
   }
 }

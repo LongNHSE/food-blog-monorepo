@@ -1,6 +1,11 @@
 {
   "extends": "../../../tsconfig.json",
   "files": [],
-  "include": [],
-  "references": []
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    }
+  ],
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }

@@ -1,7 +1,16 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  UseFilters,
+  UsePipes,
+  ValidationPipe,
+} from '@nestjs/common';
 import { AppService } from './app.service';
 import { User } from '@food-blog/nestjs-user-lib/schema/user.schema';
-import type { TUser } from '@food-blog/interfaces';
+import type { LoginDto, TUser } from '@food-blog/interfaces';
+import { MessagePattern } from '@nestjs/microservices';
 
 @Controller()
 export class AppController {
@@ -12,9 +21,9 @@ export class AppController {
     return await this.appService.createUser(user);
   }
 
-  @Post('login')
-  async login(@Body() user: any): Promise<User> {
+  @MessagePattern('login')
+  @UsePipes(new ValidationPipe())
+  async login(@Body() user: LoginDto): Promise<User | null> {
     return await this.appService.login(user);
   }
-
 }

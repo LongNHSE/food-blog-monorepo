@@ -12,12 +12,21 @@ import { ConfigModule } from '@nestjs/config';
     }),
     NestjsUserLibModule,
     NestjsAuthLibModule,
+
     ClientsModule.register([
+      {
+        name: 'AUTH_SERVICE',
+        transport: Transport.TCP,
+        options: {
+          host: 'localhost',
+          port: 3002,
+        },
+      },
       {
         name: 'SHOP_SERVICE',
         transport: Transport.TCP,
         options: {
-          host: 'nestjs-shop-service',
+          host: 'localhost',
           port: 3001,
         },
       },

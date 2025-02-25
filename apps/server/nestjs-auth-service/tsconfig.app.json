@@ -2,9 +2,10 @@
   "extends": "../../../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "out-tsc/nestjs-auth-service",
-    "module": "nodenext",
+    "module": "ESNext",
     "types": ["node"],
-    "moduleResolution": "nodenext",
+    "composite": true,
+    "moduleResolution": "node",
     "tsBuildInfoFile": "out-tsc/nestjs-auth-service/tsconfig.app.tsbuildinfo",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -12,8 +13,15 @@
     "noImplicitAny": true,
     "strictBindCallApply": true,
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   },
-  "include": ["src/**/*.ts"],
+  "include": [
+    "src/**/*.ts",
+    "../../libs/interfaces/src/**/*.ts",
+    "../../libs/interfaces/src/**/*.json",
+    "./src/**/*.json"
+  ],
   "exclude": []
 }

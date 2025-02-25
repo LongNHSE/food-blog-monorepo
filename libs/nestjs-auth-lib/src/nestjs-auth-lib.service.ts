@@ -8,7 +8,8 @@ import * as bcrypt from 'bcryptjs';
 export class NestjsAuthLibService {
   constructor(private nestjsUserLibService: NestjsUserLibService) {}
 
-  async validateUser(username: string, password: string): Promise<User | null> {
+  async validateUser(userInput: { username: string; password: string }): Promise<User | null> {
+    const { username, password } = userInput;
     const user = await this.nestjsUserLibService.getUserByUsername(username);
     if (user && bcrypt.compareSync(password, user.password)) {
       return user;

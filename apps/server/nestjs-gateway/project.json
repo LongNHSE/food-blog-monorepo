@@ -1,5 +1,5 @@
 {
-  "name": "nestjs-gateway",
+  "name": "@food-blog/nestjs-gateway",
   "root": "apps/server/nestjs-gateway",
   "sourceRoot": "apps/server/nestjs-gateway/src",
   "projectType": "application",
@@ -31,15 +31,15 @@
       "executor": "@nx/js:node",
       "options": {
         "watch": true,
-        "buildTarget": "nestjs-gateway:build",
+        "buildTarget": "@food-blog/nestjs-gateway:build",
         "runBuildTargetDependencies": false
       },
       "configurations": {
         "development": {
-          "buildTarget": "nestjs-gateway:build:development"
+          "buildTarget": "@food-blog/nestjs-gateway:build:development"
         },
         "production": {
-          "buildTarget": "nestjs-gateway:build:production"
+          "buildTarget": "@food-blog/nestjs-gateway:build:production"
         }
       }
     },

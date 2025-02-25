@@ -2,6 +2,7 @@
   "name": "@food-blog/nestjs-auth-service",
   "version": "0.0.1",
   "private": true,
+  "type": "module",
   "nx": {
     "name": "nestjs-auth-service",
     "projectType": "application",

@@ -9,6 +9,6 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "../../libs/nestjs-auth-lib/src/**/*.ts"],
   "exclude": ["eslint.config.js", "eslint.config.cjs", "eslint.config.mjs"]
 }

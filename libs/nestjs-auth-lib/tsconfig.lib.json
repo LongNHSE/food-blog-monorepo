@@ -5,8 +5,9 @@
     "declarationMap": true,
     "sourceMap": true,
     "emitDeclarationOnly": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "composite": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "src/**/*.d.ts", "src/**/*.json"],
   "exclude": ["node_modules", "dist", "test"]
 }

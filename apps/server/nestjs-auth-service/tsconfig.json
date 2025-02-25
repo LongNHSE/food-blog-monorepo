@@ -1,10 +1,18 @@
 {
   "extends": "../../../tsconfig.json",
   "files": [],
-  "include": [],
+  "include": [
+    "src/**/*.ts",
+    "../../libs/interfaces/src/**/*.ts",
+    "../../libs/interfaces/src/**/*.json",
+    "./src/**/*.json"
+  ],
   "references": [
     {
       "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "../../../libs/interfaces/tsconfig.lib.json"
     }
   ]
 }
