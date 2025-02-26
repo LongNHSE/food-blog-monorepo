@@ -1,8 +1,15 @@
-import { LoginDto, TUser } from '@food-blog/interfaces';
+import {
+  apiFailed,
+  ApiResponse,
+  apiSuccess,
+  LoginDto,
+  TUser,
+} from '@food-blog/interfaces';
 import { NestjsUserLibService } from '@food-blog/nestjs-user-lib';
 import { User } from '@food-blog/nestjs-user-lib/schema/user.schema';
-import { Injectable } from '@nestjs/common';
+import { HttpStatus, Injectable } from '@nestjs/common';
 import { NestjsAuthLibService } from '@food-blog/nestjs-auth-lib';
+import { access } from 'fs';
 
 @Injectable()
 export class AppService {
@@ -15,11 +22,21 @@ export class AppService {
     return await this.nestjsUserService.createUser(user);
   }
 
-  async login(userInput: LoginDto): Promise<User | null> {
+  async login(
+    userInput: LoginDto
+  ): Promise<ApiResponse<{ user: User; accessToken: string }|null> | null> {
     const user = await this.nestjsAuthService.validateUser(userInput);
     if (user) {
-      return user;
+      const jwt = await this.nestjsAuthService.generateJwt(user);
+      return apiSuccess(
+        {
+          user,
+          accessToken: jwt,
+        },
+        'Login successful',
+        HttpStatus.OK
+      );
     }
-    return null;
+    return apiFailed(null, 'Invalid credentials', HttpStatus.UNAUTHORIZED);
   }
 }

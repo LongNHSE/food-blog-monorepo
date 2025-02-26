@@ -1,6 +1,8 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { AppService } from './app.service';
 import { LoginDto } from '@food-blog/interfaces';
+import { JwtAuthGuard, JwtStrategy } from '@food-blog/nestjs-auth-lib';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller()
 export class AppController {
@@ -15,6 +17,7 @@ export class AppController {
   }
 
   @Get('shop')
+  @UseGuards(JwtAuthGuard)
   getShop() {
     return this.appService.getShop();
   }

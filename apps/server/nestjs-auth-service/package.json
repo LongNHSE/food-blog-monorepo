@@ -12,7 +12,7 @@
         "executor": "@nx/esbuild:esbuild",
         "options": {
           "command": "esbuild --bundle",
-          "tsConfig": "apps/server/nestjs-gateway/tsconfig.app.json",
+          "tsConfig": "apps/server/nestjs-gateway/tsconfig.json",
           "main": "apps/server/nestjs-auth-service/src/main.ts",
           "entryPoints": [
             "apps/server/nestjs-auth-service/src/main.ts"

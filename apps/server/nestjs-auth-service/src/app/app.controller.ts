@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { AppService } from './app.service';
 import { User } from '@food-blog/nestjs-user-lib/schema/user.schema';
-import type { LoginDto, TUser } from '@food-blog/interfaces';
+import type { ApiResponse, LoginDto, TUser } from '@food-blog/interfaces';
 import { MessagePattern } from '@nestjs/microservices';
 
 @Controller()
@@ -23,7 +23,9 @@ export class AppController {
 
   @MessagePattern('login')
   @UsePipes(new ValidationPipe())
-  async login(@Body() user: LoginDto): Promise<User | null> {
+  async login(
+    @Body() user: LoginDto
+  ): Promise<ApiResponse<{ user: User; accessToken: string } | null> | null> {
     return await this.appService.login(user);
   }
 }

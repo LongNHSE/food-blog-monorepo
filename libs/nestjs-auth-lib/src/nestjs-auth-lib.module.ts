@@ -4,6 +4,8 @@ import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { NestjsUserLibModule } from '@food-blog/nestjs-user-lib';
+import { JwtStrategy } from './jwt.strategy';
+import { JwtAuthGuard } from './nestjs-auth-guard';
 
 @Module({
   imports: [
@@ -13,15 +15,19 @@ import { NestjsUserLibModule } from '@food-blog/nestjs-user-lib';
       isGlobal: true,
     }),
     JwtModule.registerAsync({
-      imports: [ConfigModule],
+      imports: [ConfigModule], // Ensure ConfigModule is imported
       inject: [ConfigService],
-      useFactory: async (configService: ConfigService) => ({
-        secret: configService.get('JWT_KEY'),
-        signOptions: { expiresIn: configService.get('JWT_KEY_EXPIRES_IN') },
-      }),
+      useFactory: async (configService: ConfigService) => {
+        const jwtKey = configService.get<string>('JWT_KEY');
+        const jwtExpiresIn = configService.get<string>('JWT_KEY_EXPIRES_IN');
+        return {
+          secret: jwtKey,
+          signOptions: { expiresIn: jwtExpiresIn || '3600s' },
+        };
+      },
     }),
   ],
-  providers: [NestjsAuthLibService],
+  providers: [NestjsAuthLibService, JwtStrategy],
   exports: [NestjsAuthLibService],
 })
 export class NestjsAuthLibModule {}

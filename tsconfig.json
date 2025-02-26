@@ -7,16 +7,9 @@
       "path": "./libs/interfaces/tsconfig.lib.json"
     },
     {
-      "path": "./libs/utils"
+      "path": "./libs/nestjs-user-lib/tsconfig.lib.json"
     },
-    {
-      "path": "./libs/test"
-    },
-
-    {
-      "path": "./apps/client/food-blog-client"
-    },
-    { "path": "./libs/nestjs-user-lib/tsconfig.lib.json" },
+    { "path": "./libs/nestjs-auth-lib/tsconfig.lib.json" },
     {
       "path": "./apps/server/nestjs-gateway"
     },

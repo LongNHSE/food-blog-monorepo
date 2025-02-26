@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "composite": true,
     "declaration": true,
@@ -7,6 +7,12 @@
     "sourceMap": true,
     "outDir": "../../dist/libs/interfaces"
   },
-  "include": ["src/**/*.ts"],
+  "include": [
+    "src/**/*.ts",
+    "../../libs/interfaces/src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.json",
+    "src/**/*.js"
+  ],
   "exclude": ["node_modules", "dist", "test"]
 }

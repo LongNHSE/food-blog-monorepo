@@ -13,18 +13,11 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
-      secretOrKey: configService.get<string>('JWT_SECRET', 'defaultSecretKey'),
+      secretOrKey: configService.get<string>('JWT_KEY', 'defaultSecretKey'),
     });
   }
 
   async validate(payload: any): Promise<{ userId: string; username: string }> {
-    const user = await this.nestjsAuthLibService.validateUser(
-      payload.username,
-      payload.password
-    );
-    if (!user) {
-      throw new UnauthorizedException();
-    }
     return { userId: payload.sub, username: payload.username };
   }
 }

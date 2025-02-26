@@ -1,11 +1,22 @@
 {
   "extends": "../../../tsconfig.json",
   "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
-    }
-  ],
+  "compilerOptions": {
+    "outDir": "out-tsc/nestjs-shop-service",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "types": ["node"],
+    "tsBuildInfoFile": "out-tsc/nestjs-shop-service/tsconfig.app.tsbuildinfo",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "strictBindCallApply": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
+    "composite": false
+  },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "**/*.spec.ts"]
 }
