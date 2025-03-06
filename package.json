@@ -2,7 +2,9 @@
   "name": "@food-blog/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "dev": "nx run-many --target=serve --tag=scope:libs"
+  },
   "private": true,
   "type": "module",
   "devDependencies": {

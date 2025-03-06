@@ -29,6 +29,7 @@ export class AppController {
 
   @Post('login')
   login(@Body() loginDto: LoginDto) {
+    console.log(loginDto);
     return this.appService.login(loginDto);
   }
 }

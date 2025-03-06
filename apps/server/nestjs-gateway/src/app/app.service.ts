@@ -11,10 +11,15 @@ export class AppService {
   ) {}
 
   async login(loginDto: LoginDto) {
-    const result = await firstValueFrom(
-      this.authService.send('login', loginDto)
-    );
-    return result;
+    try {
+      const result = await firstValueFrom(
+        this.authService.send('login', loginDto)
+      );
+      return result;
+    } catch (error: any) {
+      console.error('Error:', error);
+      throw new RpcException(error);
+    }
   }
 
   async createShop(createShopDto: any) {

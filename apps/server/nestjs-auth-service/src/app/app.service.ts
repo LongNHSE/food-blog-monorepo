@@ -24,8 +24,9 @@ export class AppService {
 
   async login(
     userInput: LoginDto
-  ): Promise<ApiResponse<{ user: User; accessToken: string }|null> | null> {
+  ): Promise<ApiResponse<{ user: User; accessToken: string } | null> | null> {
     const user = await this.nestjsAuthService.validateUser(userInput);
+    console.log('user', user);
     if (user) {
       const jwt = await this.nestjsAuthService.generateJwt(user);
       return apiSuccess(

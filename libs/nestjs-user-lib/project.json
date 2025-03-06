@@ -2,6 +2,8 @@
   "name": "@food-blog/nestjs-user-lib",
   "projectType": "library",
   "sourceRoot": "libs/nestjs-user-lib/src",
+  "tags": ["scope:libs"],
+
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",
