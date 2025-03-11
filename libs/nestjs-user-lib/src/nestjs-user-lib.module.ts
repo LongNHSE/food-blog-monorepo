@@ -11,7 +11,9 @@ import { UserSchema } from './schema/user.schema';
 
     MongooseModule.forRootAsync({
       inject: [ConfigService],
-      useFactory: (configService: ConfigService) => ({
+      useFactory: (configService: ConfigService) => (
+        
+        {
         uri: configService.get<string>('MONGO_CONNECTION_STRING'),
       }),
     }),

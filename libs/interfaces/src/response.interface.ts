@@ -19,7 +19,7 @@ export const apiFailed = (
   error?: any,
   message = 'Failed',
   statusCode = 500,
-  data = null,
+  data = null
 ): ApiResponse<null> => ({
   message,
   statusCode,

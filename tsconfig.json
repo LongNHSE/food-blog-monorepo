@@ -4,6 +4,13 @@
   "files": [],
   "references": [
     {
+      "path": "./libs/interfaces/tsconfig.lib.json"
+    },
+    {
+      "path": "./libs/nestjs-user-lib/tsconfig.lib.json"
+    },
+    { "path": "./libs/nestjs-auth-lib/tsconfig.lib.json" },
+    {
       "path": "./apps/server/nestjs-gateway"
     },
     {
@@ -13,20 +20,7 @@
       "path": "./apps/server/nestjs-shop-service"
     },
     {
-      "path": "./libs/utils"
-    },
-    {
-      "path": "./apps/server/nestjs-gateway-e2e"
-    },
-    {
-      "path": "./libs/test"
-    },
-    {
-      "path": "./libs/interfaces"
-    },
-    {
       "path": "./apps/client/food-blog-client"
-    },
-    { "path": "./libs/nestjs-user-lib/tsconfig.lib.json" }
+    }
   ]
 }

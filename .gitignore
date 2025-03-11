@@ -45,3 +45,8 @@ Thumbs.db
 .next
 out
 .env
+
+.pem
+*.pem
+
+apps/client/food-blog-client/.env.local
