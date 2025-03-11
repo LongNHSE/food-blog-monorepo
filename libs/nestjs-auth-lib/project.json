@@ -1,0 +1,18 @@
+{
+  "name": "@food-blog/nestjs-auth-lib",
+  "projectType": "library",
+  "sourceRoot": "libs/nestjs-auth-lib/src",
+  "tags": ["scope:libs"],
+
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "main": "libs/nestjs-auth-lib/src/index.ts",
+        "outputPath": "dist/libs/nestjs-auth-lib",
+        "tsConfig": "libs/nestjs-auth-lib/tsconfig.lib.json"
+      }
+    }
+  }
+}

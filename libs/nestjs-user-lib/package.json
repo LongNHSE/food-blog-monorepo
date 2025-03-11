@@ -1,0 +1,4 @@
+{
+  "name": "@food-blog/nestjs-user-lib",
+  "main": "dist/libs/nestjs-user-lib/index.js"
+}

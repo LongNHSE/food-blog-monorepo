@@ -1,16 +1,14 @@
 {
-  "extends": "../../../tsconfig.base.json",
-  "files": [],
-  "include": [],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "../../../libs/utils"
-    },
-    {
-      "path": "../../../libs/interface"
-    }
-  ]
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "out-tsc/nestjs-gateway",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "types": ["node"],
+    "tsBuildInfoFile": "out-tsc/nestjs-gateway/tsconfig.app.tsbuildinfo",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "composite": false
+  },
+  "include": ["src/**/*.ts"]
 }

@@ -6,7 +6,6 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Shop, ShopDocument } from '../schema/shop.schema';
 import { Model } from 'mongoose';
-import { apiSuccess } from '@food-blog/interfaces';
 import { CreateShopDto } from '../dto/create-shop.dto';
 
 @Injectable()

@@ -26,7 +26,6 @@
       "@food-blog/interfaces/*": ["libs/interfaces/src/*"]
     },
     "outDir": "out-tsc/food-blog-client",
-    "rootDir": "src",
     "tsBuildInfoFile": "out-tsc/food-blog-client/tsconfig.tsbuildinfo"
   },
   "include": [

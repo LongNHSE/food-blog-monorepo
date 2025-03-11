@@ -1,0 +1,21 @@
+{
+  "name": "@food-blog/nestjs-user-lib",
+  "projectType": "library",
+  "sourceRoot": "libs/nestjs-user-lib/src",
+  "tags": ["scope:libs"],
+
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "dependsOn": ["^build"],
+      "options": {
+        "main": "libs/nestjs-user-lib/src/index.ts",
+        "outputPath": "dist/libs/nestjs-user-lib",
+        "tsConfig": "libs/nestjs-user-lib/tsconfig.lib.json",
+        "assets": ["libs/interfaces/package.json"]
+      }
+    }
+  },
+  "implicitDependencies": ["@food-blog/interfaces"]
+}

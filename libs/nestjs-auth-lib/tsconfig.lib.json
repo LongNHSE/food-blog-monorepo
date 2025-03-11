@@ -1,0 +1,23 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "emitDeclarationOnly": true,
+    "experimentalDecorators": true,
+    "composite": true
+  },
+  "include": [
+    "src/**/*",
+    "src/**/*.d.ts",
+    "src/**/*.json",
+    "src/**/*.js",
+    "../../libs/interfaces/src/**/*.ts", // Include the interfaces library
+
+    "../../libs/nestjs-user-lib/src/**/*ts",
+    "./libs/nestjs-user-lib/src/**/*.d.ts",
+    "./libs/nestjs-user-lib/src/**/*.json"
+  ],
+  "exclude": ["node_modules", "dist", "test"]
+}

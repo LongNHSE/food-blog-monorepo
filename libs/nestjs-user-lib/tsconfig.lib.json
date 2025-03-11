@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "../../dist/libs/nestjs-user-lib"
+  },
+  "include": [
+    "src/**/*.ts",
+    "../../libs/interfaces/src/**/*.ts", // Include the interfaces library
+    "src/**/*.d.ts",
+    "src/**/*.json",
+    "src/**/*.js"
+  ],
+  "exclude": ["node_modules", "dist", "test"]
+}
