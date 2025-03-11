@@ -5,10 +5,7 @@ import {
   NavigationMenuItem,
   NavigationMenuTrigger,
 } from '@radix-ui/react-navigation-menu';
-import {
-  MenuProps,
-  NavigationProps,
-} from '../types/navigationProps.interface';
+import { MenuProps, NavigationProps } from '../types/navigationProps.interface';
 import Image from 'next/image';
 import { HomeIcon, ContactIcon, Book, Store } from 'lucide-react';
 import Link from 'next/link';
@@ -19,7 +16,7 @@ const menuItems: MenuProps[] = [
   {
     title: 'Home',
     renderIcon: <HomeIcon size={36} />,
-    link: '/',
+    link: '/home',
   },
   {
     title: 'Blogs',

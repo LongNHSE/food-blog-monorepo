@@ -1,36 +1,50 @@
+import { TUser } from '@food-blog/interfaces';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export interface UserInterface {
-  id: string;
-  name: string;
-  email: string;
-  role: string;
-}
-
-const initialState: UserInterface = {
-  id: '1',
-  name: 'Long',
+const initialState: TUser = {
+  _id: '',
+  firstName: '',
+  lastName: '',
+  username: '',
   email: '',
   role: '',
+  status: '',
+  createdAt: undefined,
+  updatedAt: undefined,
+  avatar: '',
+  password: '',
+  __v: 0,
 };
 
 const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    login: (state, action: PayloadAction<UserInterface>) => {
+    loginSlice: (state, action: PayloadAction<TUser>) => {
+      state._id = action.payload._id.toString();
+      state.firstName = action.payload.firstName;
+      state.lastName = action.payload.lastName;
+      state.username = action.payload.username;
       state.email = action.payload.email;
-      state.id = action.payload.id;
-      state.name = action.payload.name;
       state.role = action.payload.role;
+      state.status = action.payload.status;
+      state.createdAt = action.payload.createdAt;
+      state.updatedAt = action.payload.updatedAt;
+      state.avatar = action.payload.avatar;
     },
-    logout: (state) => {
+    logoutSlice: (state) => {
+      state._id = '';
+      state.firstName = '';
+      state.lastName = '';
+      state.username = '';
       state.email = '';
-      state.id = '';
-      state.name = '';
       state.role = '';
+      state.status = '';
+      state.createdAt = undefined;
+      state.updatedAt = undefined;
+      state.avatar = '';
     },
   },
 });
-export const { login, logout } = userSlice.actions;
+export const { loginSlice, logoutSlice } = userSlice.actions;
 export default userSlice.reducer;
