@@ -1,5 +1,5 @@
 'use client';
-import { logout } from '@/libs/states/user/userSlice';
+import { logoutSlice } from '@/libs/states/user/userSlice';
 import { useAppDispatch } from '@/libs/store';
 import { useSelector } from 'react-redux';
 
@@ -16,7 +16,7 @@ export default function Index() {
       <button
         onClick={() => {
           console.log('logout');
-          dispatch(logout());
+          dispatch(logoutSlice());
         }}
       >
         logout
