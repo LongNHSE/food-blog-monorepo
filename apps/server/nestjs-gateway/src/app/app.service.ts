@@ -1,7 +1,8 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ClientProxy, RpcException } from '@nestjs/microservices';
-import { apiSuccess, LoginDto } from '@food-blog/interfaces';
+import { ApiResponse, apiSuccess, LoginDto } from '@food-blog/interfaces';
 import { catchError, firstValueFrom, throwError } from 'rxjs';
+import { User } from '@food-blog/nestjs-user-lib/schema/user.schema';
 
 @Injectable()
 export class AppService {
@@ -12,12 +13,13 @@ export class AppService {
 
   async login(loginDto: LoginDto) {
     try {
-      const result = await firstValueFrom(
-        this.authService.send('login', loginDto)
-      );
+      const result: ApiResponse<{ user: User; accessToken: string } | null> =
+        await firstValueFrom(this.authService.send('login', loginDto));
+
+      
+
       return result;
     } catch (error: any) {
-      console.error('Error:', error);
       throw new RpcException(error);
     }
   }

@@ -18,6 +18,9 @@
     },
     {
       "path": "./apps/server/nestjs-shop-service"
+    },
+    {
+      "path": "./apps/client/food-blog-client"
     }
   ]
 }

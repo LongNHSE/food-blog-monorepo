@@ -2,9 +2,7 @@
   "name": "@food-blog/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {
-    "dev": "nx run-many --target=serve --tag=scope:libs"
-  },
+  "scripts": {},
   "private": true,
   "type": "module",
   "devDependencies": {
@@ -31,6 +29,7 @@
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",
     "@types/bcryptjs": "^2.4.6",
+    "@types/cookie-parser": "^1.4.8",
     "@types/jest": "^29.5.14",
     "@types/node": "~18.16.9",
     "@types/passport-jwt": "^4.0.1",
@@ -83,8 +82,12 @@
     "class-validator": "^0.14.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "cookie-parser": "^1.4.7",
+    "cookies-next": "^4.3.0",
     "esbuild-decorators": "^1.0.0",
     "g": "^2.0.1",
+    "jose": "^6.0.8",
+    "jwt-decode": "^4.0.0",
     "lucide-react": "^0.471.1",
     "mongoose": "^8.9.2",
     "next": "14.2.16",

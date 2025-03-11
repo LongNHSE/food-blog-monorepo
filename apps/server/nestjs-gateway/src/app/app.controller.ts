@@ -1,8 +1,10 @@
-import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, Res, UseGuards } from '@nestjs/common';
+import express from 'express';
 import { AppService } from './app.service';
-import { LoginDto } from '@food-blog/interfaces';
+import { ApiResponse, LoginDto } from '@food-blog/interfaces';
 import { JwtAuthGuard, JwtStrategy } from '@food-blog/nestjs-auth-lib';
 import { AuthGuard } from '@nestjs/passport';
+import { User } from '@food-blog/nestjs-user-lib/schema/user.schema';
 
 @Controller()
 export class AppController {
@@ -28,8 +30,17 @@ export class AppController {
   }
 
   @Post('login')
-  login(@Body() loginDto: LoginDto) {
-    console.log(loginDto);
-    return this.appService.login(loginDto);
+  async login(
+    @Body() loginDto: LoginDto,
+    @Res({ passthrough: true }) response: express.Response
+  ) {
+    const result: ApiResponse<{ user: User; accessToken: string } | null> =
+      await this.appService.login(loginDto);
+
+    response.cookie('accessToken', result.data?.accessToken, {
+      httpOnly: true,
+    });
+
+    return result;
   }
 }

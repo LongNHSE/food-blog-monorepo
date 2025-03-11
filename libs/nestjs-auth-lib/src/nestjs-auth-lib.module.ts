@@ -18,11 +18,16 @@ import { JwtAuthGuard } from './nestjs-auth-guard';
       imports: [ConfigModule], // Ensure ConfigModule is imported
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => {
-        const jwtKey = configService.get<string>('JWT_KEY');
+        const jwtKey = configService.get<string>('JWT_KEY_SECRET');
+        const jwtPublic = configService.get<string>('JWT_KEY_PUBLIC');
         const jwtExpiresIn = configService.get<string>('JWT_KEY_EXPIRES_IN');
         return {
-          secret: jwtKey,
-          signOptions: { expiresIn: jwtExpiresIn || '3600s' },
+          privateKey: jwtKey,
+          publicKey: jwtPublic,
+          signOptions: {
+            expiresIn: jwtExpiresIn || '3600s',
+            algorithm: 'RS256',
+          },
         };
       },
     }),
