@@ -2,8 +2,9 @@
   "name": "@food-blog/nestjs-auth-service",
   "version": "0.0.1",
   "private": true,
+  "type": "module",
   "nx": {
-    "name": "nestjs-auth-service",
+    "name": "@food-blog/nestjs-auth-service",
     "projectType": "application",
     "sourceRoot": "apps/server/nestjs-auth-service/src",
     "targets": {
@@ -11,7 +12,7 @@
         "executor": "@nx/esbuild:esbuild",
         "options": {
           "command": "esbuild --bundle",
-          "tsConfig": "apps/server/nestjs-gateway/tsconfig.app.json",
+          "tsConfig": "apps/server/nestjs-gateway/tsconfig.json",
           "main": "apps/server/nestjs-auth-service/src/main.ts",
           "entryPoints": [
             "apps/server/nestjs-auth-service/src/main.ts"
@@ -39,15 +40,15 @@
         "executor": "@nx/js:node",
         "options": {
           "watch": true,
-          "buildTarget": "nestjs-auth-service:build",
+          "buildTarget": "@food-blog/nestjs-auth-service:build",
           "runBuildTargetDependencies": false
         },
         "configurations": {
           "development": {
-            "buildTarget": "nestjs-auth-service:build:development"
+            "buildTarget": "@food-blog/nestjs-auth-service:build:development"
           },
           "production": {
-            "buildTarget": "nestjs-auth-service:build:production"
+            "buildTarget": "@food-blog/nestjs-auth-service:build:production"
           }
         }
       }

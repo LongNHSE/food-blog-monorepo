@@ -5,11 +5,11 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "outDir": "../../dist/libs/nestjs-user-lib"
+    "outDir": "../../dist/libs/interfaces"
   },
   "include": [
     "src/**/*.ts",
-    "../../libs/interfaces/src/**/*.ts", // Include the interfaces library
+    "../../libs/interfaces/src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.json",
     "src/**/*.js"

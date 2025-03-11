@@ -20,19 +20,12 @@ async function bootstrap() {
     {
       transport: Transport.TCP,
       options: {
-        host: '0.0.0.0',
+        host: 'localhost',
         port: 3001,
       },
     }
   );
-  // app.useGlobalFilters(new ExceptionFilter());
-  // app.useGlobalPipes(
-  //   new ValidationPipe({
-  //     exceptionFactory: (errors) => {
-  //       return new RpcException(errors);
-  //     },
-  //   })
-  // );
+
   await app.listen();
 }
 
