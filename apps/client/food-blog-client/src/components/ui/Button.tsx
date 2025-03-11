@@ -19,7 +19,8 @@ const buttonVariants = cva(
         link: 'text-primary underline-offset-4 hover:underline',
         loginButton:
           'bg-dark_brown text-primary-foreground hover:bg-dark_brown/90 w-full',
-        loading: 'bg-dark_brown/60 text-primary-foreground  w-full',
+        loading:
+          'bg-dark_brown/60 text-primary-foreground w-full cursor-not-allowed',
       },
       size: {
         default: 'h-10 px-4 py-2',
