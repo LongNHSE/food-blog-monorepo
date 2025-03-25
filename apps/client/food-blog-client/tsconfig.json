@@ -1,5 +1,5 @@
 {
-  "extends": "../../../tsconfig.base.json",
+  "extends": "../../../tsconfig.json",
   "compilerOptions": {
     "jsx": "preserve",
     "strict": true,
@@ -20,9 +20,10 @@
         "name": "next"
       }
     ],
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["apps/client/food-blog-client/src/*"],
+      "@food-blog/interfaces": ["libs/interfaces/src/index.ts"],
+      "@food-blog/interfaces/*": ["libs/interfaces/src/*"]
     },
     "outDir": "out-tsc/food-blog-client",
     "tsBuildInfoFile": "out-tsc/food-blog-client/tsconfig.tsbuildinfo"
@@ -34,9 +35,12 @@
     "src/**/*.jsx",
     "../../../apps/food-blog-client/.next/types/**/*.ts",
     "../../../dist/apps/food-blog-client/.next/types/**/*.ts",
+    "../../../libs/interfaces/src/index.ts",
+    "../../../libs/interfaces/src/**/*.ts",
+    "../../../libs/interfaces/src/**/*.tsx",
     "next-env.d.ts",
     ".next/types/**/*.ts"
-  ],
+, "src/middleware.ts"  ],
   "exclude": [
     "out-tsc",
     "dist",
