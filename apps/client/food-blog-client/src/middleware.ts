@@ -21,6 +21,7 @@ export async function middleware(request: NextRequest) {
         });
         console.log('Token verified:', result);
       } catch (error) {
+        console.log(error);
         return NextResponse.redirect(new URL('/sign-in', request.url));
       }
     } else {
