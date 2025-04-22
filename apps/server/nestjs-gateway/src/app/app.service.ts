@@ -16,8 +16,6 @@ export class AppService {
       const result: ApiResponse<{ user: User; accessToken: string } | null> =
         await firstValueFrom(this.authService.send('login', loginDto));
 
-      
-
       return result;
     } catch (error: any) {
       throw new RpcException(error);
@@ -37,8 +35,13 @@ export class AppService {
   }
 
   async getShop() {
-    const result = await firstValueFrom(this.shopService.send('getShop', {}));
-    return apiSuccess(result, 'Successfully get shop data', 200);
+    try {
+      const result = await firstValueFrom(this.shopService.send('getShop', {}));
+      return apiSuccess(result, 'Successfully get shop data', 200);
+    } catch (error) {
+      console.log(error);
+    }
+    return null;
   }
 
   getData(): { message: string } {
