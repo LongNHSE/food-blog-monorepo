@@ -24,10 +24,13 @@ import { ConfigModule } from '@nestjs/config';
       },
       {
         name: 'SHOP_SERVICE',
-        transport: Transport.TCP,
+        transport: Transport.RMQ,
         options: {
-          host: 'localhost',
-          port: 3001,
+          urls: ['amqp://guest:guest@localhost:5672'],
+          queue: 'shops_queue',
+          queueOptions: {
+            durable: true,
+          },
         },
       },
     ]),
